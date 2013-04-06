@@ -1,0 +1,147 @@
+/* Placeholder */
+@mixin placeholder($placeholderColor) {
+	::-webkit-input-placeholder { color: $placeholderColor; }
+	:-moz-placeholder { color: $placeholderColor; }
+	::-moz-placeholder { color: $placeholderColor; }
+	:-ms-input-placeholder { color: $placeholderColor; }
+}
+
+label {
+	display: block;
+	font-size: $baseFontSize;
+	color: $inverseColor;
+	margin-right: em(10);
+	&.required {
+		&:after {
+			content: ' *';
+			font-weight: bold;
+			color: $primaryColor;
+		}
+	}
+	&.radio {
+		margin-bottom: em(20);
+		cursor: pointer;		  
+		input[type="radio"] { display: none !important; }
+		input[type="radio"] + span { display: inline-block; @include size(22); vertical-align: middle; @include background(url("../images/checkboxes-radios.png") -44px 0 no-repeat); cursor: pointer; margin-top: -3px; }
+		input[type="radio"]:checked + span { @include background(url("../images/checkboxes-radios.png") -44px -22px no-repeat); }
+		&.disabled {
+			color: $defaultColorLight;
+			cursor: not-allowed;
+			input[type="radio"] + span { @include background(url("../images/checkboxes-radios.png") -66px 0 no-repeat); cursor: not-allowed; }
+			input[type="radio"]:checked + span { @include background(url("../images/checkboxes-radios.png") -66px -22px no-repeat); }
+		}
+	}
+	&.checkbox {
+		margin-bottom: em(20);
+		cursor: pointer;
+		input[type="checkbox"] { display: none !important; }
+		input[type="checkbox"] + span { display: inline-block; @include size(22); vertical-align: middle; @include background(url("../images/checkboxes-radios.png") 0 0 no-repeat); cursor: pointer; margin-top: -3px; }
+		input[type="checkbox"]:checked + span { background: url("../images/checkboxes-radios.png") -0 -22px no-repeat; }
+		&.disabled {
+			color: $defaultColorLight;
+			cursor: not-allowed;
+			input[type="checkbox"] + span { @include background(url("../images/checkboxes-radios.png") -22px 0 no-repeat); cursor: not-allowed; }
+			input[type="checkbox"]:checked + span { @include background(url("../images/checkboxes-radios.png") -22px -22px no-repeat); }
+		}
+	}
+}
+
+
+
+
+
+textarea:focus,input:focus{ outline: none; }
+
+
+.input {
+	
+	@include placeholder($defaultColorLight);
+	
+	&.text {
+		min-width: auto;
+		padding: em(7) em(10);
+		margin-bottom: em(20);
+		font-size: $baseFontSize / 1.15;
+		@include border($defaultColorLighter);
+		@include transition (all 0.2s ease-in-out);
+		&:hover {
+			@include border($defaultColorLight);
+		}
+		&:focus {
+			@include border($inverseColor);
+		}
+		&.success {
+			@include border($successColor);
+			background-color: ($successColorLighter);
+			color: $successColor;
+		}
+		&.error {
+			@include border($errorColor);
+			background-color: ($errorColorLighter);
+			color: $errorColor;
+		}
+	}		
+}
+
+
+textarea {
+	min-width: em(300);
+	min-height: em(100);
+	padding: em(7) em(10);
+	margin-bottom: em(20);
+	font-size: $baseFontSize / 1.15;
+	@include border($defaultColorLighter);
+	@include transition (all 0.2s ease-in-out);
+	&:hover {
+		@include border($defaultColorLight);
+	}
+	&:focus {
+		@include border($inverseColor);
+	}
+}
+
+
+.select {
+	position: relative;
+	width: auto;
+	display: inline-block;
+	overflow: hidden;
+	margin-bottom: em(20);
+	line-height: $baseLineHeight;
+	&:after {
+		@include position(absolute, 43% 10% 0 0);
+		content:'';
+		@include triangle(10px, $inverseColor, down);
+	}
+	select {
+		@include appearance(none);
+		cursor: pointer;			
+		position: relative;
+		display: block;
+		min-width: 100%;
+		padding: em(7) em(30) em(7) em(5);
+		@include border($defaultColorLighter);
+		background: transparent;
+		outline: none;
+		z-index: 99;
+		font-size: $baseFontSize / 1.15;
+		@include transition (all 0.2s ease-in-out);
+		&:hover {
+			@include border($defaultColorLight);
+		}
+		&:focus {
+			@include border($inverseColor);
+		}
+	}
+}
+
+
+.input.text.disabled, input[disabled], textarea[disabled], select[disabled] {
+	color: $disabledColor;
+	background-color: $disabledColorLighter;
+	border:none;
+	cursor: not-allowed;
+}
+option[disabled] {
+	color: $disabledColorLight;
+}

@@ -1,0 +1,72 @@
+.button,button,input[type='button'],input[type='submit'], {
+	display: inline-block;
+	@include appearance(none);
+	padding:em(10) em(13);
+	line-height: $baseLineHeight;
+	text-align: center;
+	border: none;
+	background-color: $defaultColor;
+	margin: $baseLineHeight/4;
+	color: $textButtonColor;
+	font-weight:bold;
+	text-decoration:none;
+	@include transition (all 0.2s ease-in-out);
+	
+	&:hover {
+		color: $textButtonColor;
+		background-color: $defaultColorLight;
+	}
+	&.primary {
+		background-color: $primaryColor;
+	}
+	&.primary:hover {
+		background-color: $primaryColorLight;
+	}
+	&.information {
+		background-color: $informationColor;
+	}
+	&.information:hover {
+		background-color: $informationColorLight;
+	}
+	&.inverse {
+		background-color: $inverseColor;
+	}
+	&.inverse:hover {
+		background-color: $inverseColorLight;
+	}
+	&.success {
+		background-color: $successColor;
+	}
+	&.success:hover {
+		background-color: $successColorLight;
+	}
+	&.warning {
+		background-color: $warningColor;
+	}
+	&.warning:hover {
+		background-color: $warningColorLight;
+	}
+	&.error {
+		background-color: $errorColor;
+	}
+	&.error:hover {
+		background-color: $errorColorLight;
+	}
+	&.disabled {
+		background-color: $disabledColorLighter;
+		cursor: not-allowed;		
+	}
+	&.disabled:hover {
+		background-color: $disabledColorLighter;
+	}
+	&.large {
+		font-size: $baseFontSize * 1.5;
+	}
+	&.small {
+		font-size: $baseFontSize * 0.75;
+	}
+	&.mini {
+		font-size: $baseFontSize * 0.55;
+		letter-spacing: 1px;
+	}
+}

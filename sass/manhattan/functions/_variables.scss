@@ -1,0 +1,94 @@
+/* Scaffolding */
+
+$grid-columns: 12;
+$max-width: em(1088);
+$mobile: new-breakpoint(max-width 480px);
+
+
+/* Colors */
+
+$white :         #fff;
+
+$black :         #000;
+$dark :          #333;
+$gray :          #aaa;
+$grayLight   :   tint($gray, 50%);
+$grayLighter :   tint($gray, 80%);
+
+$pink :          #e46a61;
+
+$blue :			 #00ccff;
+$red :           #cc0000;
+$yellow :        #ffcc00;
+$green :         #66cc66;
+
+$bodyBackground        : $white;
+$textColor             : $dark;
+
+$linkColor             : $pink;
+$linkColorHover        : shade($linkColor, 15%);
+
+$defaultColor          : $gray;
+$defaultColorLight     : $grayLight;
+$defaultColorLighter   : $grayLighter;
+$defaultFocusColor     : $dark;
+
+$primaryColor          : $pink;
+$primaryColorLight     : tint($primaryColor, 40%);
+$primaryColorDark      : shade($primaryColor, 15%);
+
+$inverseColor          : $dark;
+$inverseColorLight     : tint($inverseColor, 40%);
+$inverseColorDark      : $black;
+
+$informationColor      : $blue;
+$informationColorLight : tint($informationColor, 40%);
+$informationColorDark  : shade($informationColor, 15%);
+
+$successColor          : $green;
+$successColorLight     : tint($successColor, 40%);
+$successColorLighter   : tint($successColor, 90%);
+$successColorDark      : shade($successColor, 15%);
+
+$warningColor          : $yellow;
+$warningColorLight     : tint($warningColor, 40%);
+$warningColorDark      : shade($warningColor, 15%);
+
+$errorColor           : $red;
+$errorColorLight      : tint($errorColor, 40%);
+$errorColorLighter    : tint($errorColor, 90%);
+$errorColorDark       : shade($errorColor, 15%);
+
+$disabledColor         : $gray;
+$disabledColorLight    : $grayLight;
+$disabledColorLighter  : $grayLighter;
+
+$textButtonColor : $white;
+
+
+/* Typography */
+
+$arial : Arial, Helvetica, sans-serif;
+
+$sansFontFamily :     $arial;
+$serifFontFamily :    $georgia;
+$monoFontFamily :     $monospace;
+
+$baseFontSize :       em(16);
+$baseFontFamily :     $sansFontFamily;
+$baseLineHeight :     em(22);
+$altFontFamily :      $serifFontFamily;
+
+$headingsFontFamily : $serifFontFamily;
+$headingsFontWeight:  normal;
+$headingsColor:       $textColor;
+
+
+/* Border size & style */
+
+$borderSize: 2px;
+$borderStyle: solid;
+
+@mixin border($borderColor) {
+  border: $borderSize $borderStyle $borderColor;
+}

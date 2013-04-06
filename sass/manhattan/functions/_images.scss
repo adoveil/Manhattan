@@ -1,0 +1,25 @@
+.image {
+	overflow: hidden;
+	line-height: 0;
+	display: inline-block;
+	@include box-sizing(border-box);
+	margin-bottom: em(20);
+	img {
+		@include image-rendering(optimizeSpeed);
+		max-width: 100%;
+		height: auto;
+	}
+	&.frame{
+		border:em(8) solid $white;
+		-webkit-box-shadow: 0px 0px 1px 1px $defaultColorLight;
+		box-shadow: 0px 0px 1px 1px $defaultColorLight;
+	}
+	&.round{
+		-webkit-border-radius: 4px;
+    	border-radius: 4px;
+	}
+	&.circle{
+		-webkit-border-radius: 50% !important;
+		border-radius: 50% !important;
+	}
+}

@@ -1,0 +1,147 @@
+/* Links */
+
+a { 
+	color : $linkColor; @include transition (all 0.2s ease-in-out);
+	&:hover { color : $linkColorHover; }
+	&.external {
+		&:after { font-family: 'FontAwesome'; content: "\f08e"; margin-left:em(4); font-size: $baseFontSize / 1.2; }
+	}
+}
+
+
+
+/* Heading */
+
+h1,h2,h3,h4,h5,h6 { 
+	margin : ($baseLineHeight / 5) 0;
+	font-family : $headingsFontFamily;
+	font-weight : $headingsFontWeight;
+	line-height : $baseLineHeight;
+	color : $headingsColor;
+}
+
+h1 { font-size : $baseFontSize * 2.875; }
+h2 { font-size : $baseFontSize * 2.5; }
+h3 { font-size : $baseFontSize * 2.125; }
+h4 { font-size : $baseFontSize * 1.75; }
+h5 { font-size : $baseFontSize * 1.375; }
+h6 { font-size : $baseFontSize; text-transform : uppercase }
+
+
+
+/* Body */
+
+p { 
+	font-family : $baseFontFamily;
+	font-size : $baseFontSize;
+	line-height : $baseLineHeight;
+	margin : $baseLineHeight / 1.25 0;
+	vertical-align: middle;
+	&.lead {
+		font-size : $baseFontSize * 1.25;
+		line-height : $baseLineHeight * 0.85;
+		font-weight: bold;
+		margin : $baseLineHeight/2 0;
+	}
+	&.alignright {
+		text-align: right;
+	}
+	&.alignleft {
+		text-align: left;
+	}
+}
+
+
+
+/* Lists */
+
+ul,ol {
+	padding : 0 0 0 em(20);
+	&.nostyle {
+		padding : 0;
+		list-style : none;
+	}
+	&.inline {
+		padding : 0;
+		li {
+			display : inline-block;
+			margin-right : em(20);
+			&:last-child {
+				margin-right : 0;
+			}
+		}
+	}
+	&.alignleft {
+		float: left;
+		@include row();
+	}
+	&.alignright {
+		float: right;
+		@include row();
+	}
+}
+
+
+
+/* Fieldset */
+
+fieldset {
+	@include border($defaultColorLight);
+	font-family : $baseFontFamily;
+	font-size : $baseFontSize;
+	line-height : $baseLineHeight;
+	
+	legend {
+		padding: 0 em(10);
+		font-size: $baseFontSize*1.25;
+	}
+}
+
+
+/* Blockquote */
+
+blockquote {
+	margin : $baseLineHeight 0;
+	position: relative;
+	padding: 0 0 0 em(50);
+	&:before {
+		display : block;
+		content : '\201C';
+		position: absolute;
+		color : $primaryColor;
+		top: -21px;
+		left: -13px;
+		font-size : $baseFontSize * 9;
+		font-style: italic;
+	}
+	p { 
+		font-size : $baseFontSize * 1.25;
+		font-style : italic;
+		line-height : $baseLineHeight * 0.85;
+		margin: 0;
+	}
+	small {
+		color : $primaryColorDark;
+		font-size : $baseFontSize / 1.15;
+	}
+}
+
+
+/* Span Code */
+
+.code {
+	font-family: $monospace;
+	padding: 0 em(5);
+	background: $defaultColorLighter;
+}
+
+
+/* Quotes */
+
+q:before,q:after,blockquote:after { content : ""; }
+
+
+
+/* Hide Text */
+
+.hidetext { text-indent: 100%; white-space: nowrap; overflow: hidden; }

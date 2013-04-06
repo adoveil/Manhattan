@@ -1,0 +1,98 @@
+.wrapper {
+	
+	/*
+	 * OUTER-CONTAINER
+	 * The outer-container() mixin can be called on the outer-most element in the grid hierarchy,
+	 * often referred to as the wrapper. It centers the element, sets its max-width, and clears its floats.
+	 */
+	@include outer-container;
+	
+	
+	/*
+	 * SPAN-COLUMNS
+	 * The span-columns() mixin specifies the number of columns an element should span.
+	 */
+	@for $i from 1 through $grid-columns {
+		@if $i == 1 {
+			.column-#{$i} { @include span-columns($i); }
+		}
+		@else {
+			.columns-#{$i} { @include span-columns($i); }
+		}
+	}
+	
+	
+	/*
+	 * FILL-PARENT
+	 * The fill-parent() mixin forces the element that includes it to fill its parent container.
+	 * It sets its width as well as its box-sizing property
+	 */
+	.fillparent {
+		@include fill-parent;
+	}
+	
+	
+	/*
+	 * ROW
+	 * The row() mixin designates a row of columns in the grid layout.
+	 * It clears the floats on the element and sets its display property.
+	 */
+	.row {
+		@include row();
+		&.table {
+			@include row('table');
+		}
+		&.block {
+			@include row("block");
+		}
+	}
+	
+	
+	/*
+	 * SHIFT
+	 * The shift() mixin translates an element horizontally by a number of columns.
+	 * Positive arguments shift the element to the left, while negative ones shift it to the right.
+	 */
+	@for $i from -$grid-columns through $grid-columns {
+		@if $i < 0 {
+			.shift-minus-#{abs($i)} { @include shift($i); }
+		}
+		@elseif $i > 0 {
+			.shift-plus-#{abs($i)} { @include shift($i); }
+		}
+	}
+	
+	
+	/*
+	 * OMEGA
+	 * The omega() mixin can be called on any element to remove its gutter,
+	 * regradless of its position in the grid hierarchy or display property.
+	 */
+	.omega {
+		@include omega();
+	}
+	
+	
+	/*
+	 * MEDIA
+	 * The media() mixin outputs a media-query block with an optional grid context.
+	 * A grid context is defined by the total number of columns used in the grid.
+	 */
+	@include media($mobile) {
+		@for $i from 1 through $grid-columns {
+			@if $i == 1 {
+				.column-#{$i} { @include span-columns($grid-columns);}
+			}
+			@else {
+				.columns-#{$i} { @include span-columns($grid-columns); }
+			}
+		}
+	}
+	
+	
+	/*
+	 * HIDE & SHOW CONTENT
+	 */
+	.hidden { display:none; }
+	.show { display: block; }			
+}
